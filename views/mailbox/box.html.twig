@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Spamding - mailbox {{ mailbox.name }} {% endblock %}
+
+{% block content %}
+
+    <h2>Mailbox for {{ mailbox.name }}@spamding.nl</h2>
+
+    <table class="table table-bordered table-striped table-hover table-condensed">
+      <tr>
+          <thead>
+              <th>Subject</th>
+              <th>From</th>
+              <th>Date</th>
+              <th>Options</th>
+          </thead>
+      </tr>
+    {% for message in mailbox.messages %}
+        <tr>
+            <td><a href="/box/{{ mailbox.name }}/{{ message.id }}">{{ message.subject }}</a></td>
+            <td>{{ message.getHeaderField("from") }}</td>
+            <td>{{ message.getHeaderField("date") | date ("d-M-Y H:i:s") }}</td>
+            <td>
+                <a class="btn btn-mini btn-info" href="/box/{{ mailbox.name }}/{{ message.id }}/text">text view</a>
+                <a class="btn btn-mini btn-info" href="/box/{{ mailbox.name }}/{{ message.id }}">html view</a>
+                <a class="btn btn-mini btn-info" href="/box/{{ mailbox.name }}/{{ message.id }}/forward">forward</a>
+                <a class="btn btn-mini btn-danger" href="#">delete</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr><td colspan=4>No messages found in this mailbox</td></tr>
+    {% endfor %}
+    </table>
+
+    <a class="btn btn-danger" href="#">Clear all messages</a>
+
+{% endblock %}

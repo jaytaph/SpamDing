@@ -1,0 +1,12 @@
+{
+    "require": {
+        "silex/silex": "1.0.*@dev",
+        "twig/twig": ">=1.2.0,<2.0-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Spamding": "vendor/"
+        }
+    }
+
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Spamding - Disposable spam boxes{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        {% block stylesheets %}{% endblock %}
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+        <style type="text/css">
+            html,
+           body {
+             height: 100%;
+             /* The html and body elements cannot have any padding or margin. */
+           }
+
+           /* Wrapper for page content to push down footer */
+           #wrap {
+             min-height: 100%;
+             height: auto !important;
+             height: 100%;
+             /* Negative indent footer by it's height */
+             margin: 0 auto -30px;
+           }
+
+           /* Set the fixed height of the footer here */
+           #push,
+           #footer {
+             height: 30px;
+           }
+           #footer {
+             background-color: #f5f5f5;
+           }
+
+           /* Lastly, apply responsive CSS fixes as necessary */
+           @media (max-width: 767px) {
+             #footer {
+               margin-left: -20px;
+               margin-right: -20px;
+               padding-left: 20px;
+               padding-right: 20px;
+             }
+           }
+        </style>
+
+        <script type="text/javascript" src="/jquery/jquery-1.7.2.min.js"></script>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="/bootstrap/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/bootstrap/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/assets/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+
+    <body>
+
+        <div id="wrap">
+
+            <div class="container" style='padding: 60px'>
+
+            <img style="z-index: 5000; position: fixed; top: 0; right: 0; border: 0;" src="/img/beta_ribbon.gif" alt="This site is beta">
+
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">spamding.nl - disposable spam boxes</a>
+                        <div class="nav-collapse">
+                            {#{{ knp_menu_render('BoxConfigDefaultBundle:Builder:mainMenu', {'currentClass': 'active'}) }}#}
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+
+            {% include "flash_message.html.twig" %}
+
+            {% block content %}{% endblock %}
+
+            <div id="push"></div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <p style="margin-top: 5px;">
+                    <img style='height: 20px; padding-bottom: 6px' title="Created by NoxLogic" src="/img/logo_noxlogic.jpg"> &copy; NoxLogic - {{ "now" | date("Y")}} - All rights reserved.
+                    <img style='height: 20px; padding-bottom: 6px' class="pull-right" title="Created with the Symfony2 framework" src="/img/logo_symfony.png">
+                    <img style='height: 20px; padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Source hosted on Github" src="/img/icon-github.png">
+                    <img style='height: 20px; padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Created with Bootstrap" src="/img/logo_bootstrap.png">
+                    <img style='height: 20px; padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Written in PHP" src="/img/logo_php.gif">
+                </p>
+            </div>
+        </div>
+
+        {% block javascripts %}{% endblock %}
+
+        <script src="/bootstrap/js/bootstrap-transition.js"></script>
+        <script src="/bootstrap/js/bootstrap-alert.js"></script>
+        <script src="/bootstrap/js/bootstrap-modal.js"></script>
+        <script src="/bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="/bootstrap/js/bootstrap-scrollspy.js"></script>
+        <script src="/bootstrap/js/bootstrap-tab.js"></script>
+        <script src="/bootstrap/js/bootstrap-tooltip.js"></script>
+        <script src="/bootstrap/js/bootstrap-popover.js"></script>
+        <script src="/bootstrap/js/bootstrap-button.js"></script>
+        <script src="/bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="/bootstrap/js/bootstrap-carousel.js"></script>
+        <script src="/bootstrap/js/bootstrap-typeahead.js"></script>
+
+    </body>
+</html>
